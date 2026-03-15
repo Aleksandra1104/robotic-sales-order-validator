@@ -1,0 +1,48 @@
+<mvc:View controllerName="my.app.controller.Main" 
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns="sap.m">
+    <App id="app">
+        <Page title="Sales Order Validation">
+            <headerContent>
+            <SearchField width="300px" search=".onSearch" />
+            
+            <Button text="Validate All" type="Emphasized" press="onValidateAll" 
+                    icon="sap-icon://activate" visible="{ui>/isNotProcessing}" />
+            
+            <Button text="Stop Process" type="Reject" press="onStopValidation" 
+                    icon="sap-icon://stop" visible="{ui>/isProcessing}" />
+        </headerContent>
+            <content>
+                <ProgressIndicator
+                    percentValue="{ui>/progressPercent}"
+                    displayValue="{ui>/progressText}"
+                    showValue="true"
+                    state="Information"
+                    visible="{ui>/isProcessing}"
+                    class="sapUiSmallMarginBottom" />
+                <Table id="ordersTable" items="{salesModel>/}">
+                    <columns>
+                        <Column><Text text="Sales Order" /></Column>
+                        <Column><Text text="Customer" /></Column>
+                        <Column><Text text="Amount" /></Column>
+                        <Column><Text text="Status" /></Column>
+                        <Column><Text text="Last Error" /></Column>
+                        <Column hAlign="End"><Text text="Run" /></Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{salesModel>SalesOrder}" />
+                                <Text text="{salesModel>SoldToParty}" />
+                                <Text text="{salesModel>TotalNetAmount} {salesModel>TransactionCurrency}" />
+                                <ObjectStatus text="{salesModel>RobotStatus}" state="{salesModel>StatusColor}" />
+                                <Text text="{salesModel>LastError}" />
+                                <Button icon="sap-icon://play" press="onValidateSingle" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </content>
+        </Page>
+    </App>
+</mvc:View>

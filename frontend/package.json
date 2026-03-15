@@ -1,0 +1,13 @@
+{
+  "name": "uipath-sap-frontend",
+  "version": "1.0.0",
+  "description": "SAPUI5 Frontend for UiPath Orchestration",
+  "main": "index.js",
+  "scripts": {
+    "start": "ui5 serve -o index.html",
+    "build": "ui5 build"
+  },
+  "devDependencies": {
+    "@ui5/cli": "^4.0.44"
+  }
+}

@@ -1,0 +1,8 @@
+specVersion: "4.0"
+metadata:
+  name: uipath-sap-frontend
+type: application
+resources:
+  configuration:
+    paths:
+      webapp: webapp

@@ -1,0 +1,1040 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:isactr="http://schemas.uipath.com/workflow/integration-service-activities/isactr" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uiascb="clr-namespace:UiPath.IntegrationService.Activities.SWEntities.C11E108F86D_v2_sub_generateChatCompletion_Create.Bundle;assembly=C11E108F86D_v2_sub_g.qcbbm2HOjTJ13a26n1IdiY24" xmlns:upaf="clr-namespace:UiPath.Persistence.Activities.FormTask;assembly=UiPath.Persistence.Activities" xmlns:uwah="clr-namespace:UiPath.Web.Activities.Http;assembly=UiPath.Web.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_DocumentId" Type="InArgument(x:String)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
+    <x:Property Name="in_RunId" Type="InArgument(x:String)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
+    <x:Property Name="in_CallbackUrl" Type="InArgument(x:String)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
+    <x:Property Name="in_PayloadJson" Type="InArgument(x:String)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
+    <x:Property Name="io_ManagerDecision" Type="InOutArgument(x:String)" />
+    <x:Property Name="io_ManagerDecisionObj" Type="InOutArgument(upaf:FormTaskData)" />
+    <x:Property Name="io_CustomerID" Type="InOutArgument(x:String)" />
+    <x:Property Name="io_Passed_Days" Type="InOutArgument(x:Int32)" />
+    <x:Property Name="io_AI_Reasoning" Type="InOutArgument(x:String)" />
+    <x:Property Name="io_RemCredit" Type="InOutArgument(x:Double)" />
+    <x:Property Name="io_FullName" Type="InOutArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Database</x:String>
+      <x:String>UiPath.Database.Activities</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>UiPath.OCR.Activities</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>System.Data.Common</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Models.FilterBuilder</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Models</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Helpers.TypeDetailsCustomization</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Activities</x:String>
+      <x:String>UiPath.Platform.Activities</x:String>
+      <x:String>UiPath.IntegrationService.Activities.SWEntities.C11E108F86D_v2_sub_generateChatCompletion_Create.Bundle</x:String>
+      <x:String>UiPath.Persistence.Activities.Model.Task</x:String>
+      <x:String>UiPath.Persistence.Activities.FormTask</x:String>
+      <x:String>UiPath.Persistence.Activities.BaseTask</x:String>
+      <x:String>UiPath.Persistence.Activities</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.Collections.Specialized</x:String>
+      <x:String>UiPath.Web.Activities.Http.Models</x:String>
+      <x:String>System.Net</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.Web.Activities.Http</x:String>
+      <x:String>UiPath.Sdk.Activities</x:String>
+      <x:String>UiPath.Sdk.Activities.DependencyInjection.Contracts</x:String>
+      <x:String>UiPath.Sdk.Activities.DependencyInjection</x:String>
+      <x:String>UiPath.Web.Activities.JSON.Models</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.MetadataLoadContext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.Database</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.IntegrationService.Activities.Runtime</AssemblyReference>
+      <AssemblyReference>C11E108F86D_v2_sub_g.qcbbm2HOjTJ13a26n1IdiY24</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>UiPath.Persistence.Activities</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.Collections.Specialized</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>System.Net.Primitives</AssemblyReference>
+      <AssemblyReference>System.Net.HttpListener</AssemblyReference>
+      <AssemblyReference>System.Net.WebProxy</AssemblyReference>
+      <AssemblyReference>System.Net.NameResolution</AssemblyReference>
+      <AssemblyReference>System.Net.WebHeaderCollection</AssemblyReference>
+      <AssemblyReference>System.Net.WebClient</AssemblyReference>
+      <AssemblyReference>System.Net.Requests</AssemblyReference>
+      <AssemblyReference>System.Net.ServicePoint</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="715.6,12603.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="str_OrderStatus" />
+      <Variable x:TypeArguments="x:String" Name="str_Status" />
+      <Variable x:TypeArguments="x:String" Name="str_SalesOrder" />
+      <Variable x:TypeArguments="x:Double" Name="dbl_MaxPaidOrderAmount" />
+      <Variable x:TypeArguments="x:String" Name="str_CallbackBody" />
+      <Variable x:TypeArguments="scg:List(x:String)" Name="list_BlockReasons" />
+      <Variable x:TypeArguments="njl:JObject" Name="jobj_SalesOrder" />
+      <Variable x:TypeArguments="x:Int32" Name="int_DaysSincePayment" />
+      <Variable x:TypeArguments="x:Double" Name="dbl_RemainingCredit" />
+      <Variable x:TypeArguments="s:DateTime" Name="date_LastPayment" />
+      <Variable x:TypeArguments="x:String" Name="str_VIPStatus" />
+      <Variable x:TypeArguments="x:Double" Name="dbl_CreditLimit" />
+      <Variable x:TypeArguments="x:String" Name="str_FullName" />
+      <Variable x:TypeArguments="ui:DatabaseConnection" Name="db_MustangConn" />
+      <Variable x:TypeArguments="x:String" Name="str_CustomerID" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_CustomerResults" />
+      <Variable x:TypeArguments="x:Double" Name="dbl_SalesAmount" />
+      <Variable x:TypeArguments="x:Double" Name="dbl_DiscountTier" />
+      <Variable x:TypeArguments="x:Double" Name="dbl_NewCurrentBalance" />
+      <Variable x:TypeArguments="x:String" Name="deliveryBlockReason" />
+      <Variable x:TypeArguments="x:String" Name="billingBlockReason" />
+      <Variable x:TypeArguments="x:Boolean" Name="bool_ApproveStatus" />
+      <Variable x:TypeArguments="x:String" Name="str_ErrorMessage" />
+      <Variable x:TypeArguments="x:Double" Name="dbl_AverageOrderAmount" />
+      <Variable x:TypeArguments="x:String" Name="str_ConfigFileContent" />
+      <Variable x:TypeArguments="njl:JObject" Name="jobj_Config" />
+      <Variable x:TypeArguments="x:String" Name="str_ConnectionString" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ReadTextFile File="{x:Null}" Content="[str_ConfigFileContent]" DisplayName="Read Configuration File (config.json)" FileName="Config.json" sap:VirtualizedContainerService.HintSize="590.4,123.2" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+    <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" Settings="{x:Null}" DisplayName="Parse Config JSON to JObject" sap:VirtualizedContainerService.HintSize="590.4,173.6" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[jobj_Config]" JsonString="[str_ConfigFileContent]" />
+    <Assign DisplayName="Assign Connection String from Config" sap:VirtualizedContainerService.HintSize="590.4,174.4" sap2010:WorkflowViewState.IdRef="Assign_25">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[str_ConnectionString]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[jobj_Config("dbConnectionString").ToString()]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Extract Sales Order JObject from in_PayloadJson" sap:VirtualizedContainerService.HintSize="590.4,174.4" sap2010:WorkflowViewState.IdRef="Assign_5">
+      <Assign.To>
+        <OutArgument x:TypeArguments="njl:JObject">[jobj_SalesOrder]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="njl:JObject">[Newtonsoft.Json.Linq.JObject.Parse(in_PayloadJson).SelectToken("order").ToObject(Of JObject)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Extract and Trim Sales Order String, Handling Nulls" sap:VirtualizedContainerService.HintSize="590.4,174.4" sap2010:WorkflowViewState.IdRef="Assign_23">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[str_SalesOrder]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[If(jobj_SalesOrder("SalesOrder") Is Nothing, "", jobj_SalesOrder("SalesOrder").ToString.Trim)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Extract and Trim Customer ID String, Handling Nulls" sap:VirtualizedContainerService.HintSize="590.4,174.4" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[str_CustomerID]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[If(jobj_SalesOrder("SoldToParty") Is Nothing, "", jobj_SalesOrder("SoldToParty").ToString.Trim)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Extract and Trim Sales Amount String, Handling Nulls" sap:VirtualizedContainerService.HintSize="590.4,174.4" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Double">[dbl_SalesAmount]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Double">[If(jobj_SalesOrder("TotalNetAmount") Is Nothing, 0.0, CDbl(jobj_SalesOrder("TotalNetAmount").ToString.Trim))]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="582.4,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Sales Order &quot; + str_SalesOrder + &quot; created by &quot; + str_CustomerID + &quot; with sales amount $&quot; + dbl_SalesAmount.ToString + &quot;.&quot;]" />
+    <Assign DisplayName="Extract and Trim Billing Block String, Handling Nulls" sap:VirtualizedContainerService.HintSize="590.4,174.4" sap2010:WorkflowViewState.IdRef="Assign_6">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[billingBlockReason]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[If(jobj_SalesOrder("HeaderBillingBlockReason") Is Nothing, "", jobj_SalesOrder("HeaderBillingBlockReason").ToString.Trim)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Extract and Trim Delivery Block String, Handling Nulls" sap:VirtualizedContainerService.HintSize="590.4,174.4" sap2010:WorkflowViewState.IdRef="Assign_7">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[deliveryBlockReason]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[If(jobj_SalesOrder("DeliveryBlockReason") Is Nothing, "", jobj_SalesOrder("DeliveryBlockReason").ToString.Trim)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Initialize Block Reasons List" sap:VirtualizedContainerService.HintSize="590.4,174.4" sap2010:WorkflowViewState.IdRef="Assign_8">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:List(x:String)">[list_BlockReasons]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:List(x:String)">[New System.Collections.Generic.List(Of String)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <If Condition="[Not String.IsNullOrWhiteSpace(billingBlockReason)]" DisplayName="Is There a Billing Block Reason?" sap:VirtualizedContainerService.HintSize="590.4,446.4" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,218.4" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="416,158.4" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="Add">
+            <InvokeMethod.TargetObject>
+              <InArgument x:TypeArguments="scg:List(x:String)">[list_BlockReasons]</InArgument>
+            </InvokeMethod.TargetObject>
+            <InArgument x:TypeArguments="x:String">["Billing Block Reason = " &amp; billingBlockReason]</InArgument>
+          </InvokeMethod>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="449.6,89.6" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
+    <If Condition="[Not String.IsNullOrWhiteSpace(deliveryBlockReason)]" DisplayName="Is there a Delivery Block Reason?" sap:VirtualizedContainerService.HintSize="590.4,446.4" sap2010:WorkflowViewState.IdRef="If_2">
+      <If.Then>
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,218.4" sap2010:WorkflowViewState.IdRef="Sequence_11">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="416,158.4" sap2010:WorkflowViewState.IdRef="InvokeMethod_2" MethodName="Add">
+            <InvokeMethod.TargetObject>
+              <InArgument x:TypeArguments="scg:List(x:String)">[list_BlockReasons]</InArgument>
+            </InvokeMethod.TargetObject>
+            <InArgument x:TypeArguments="x:String">["Delivery Block Reason = " &amp; deliveryBlockReason]</InArgument>
+          </InvokeMethod>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="449.6,89.6" sap2010:WorkflowViewState.IdRef="Sequence_12">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
+    <If Condition="[list_BlockReasons.Count &gt; 0]" DisplayName="Are there any Block Reasons?" sap:VirtualizedContainerService.HintSize="590.4,9222.4" sap2010:WorkflowViewState.IdRef="If_3">
+      <If.Then>
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="588.8,400" sap2010:WorkflowViewState.IdRef="Sequence_13">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="Set OrderStatus variable to blocked" sap:VirtualizedContainerService.HintSize="555.2,174.4" sap2010:WorkflowViewState.IdRef="Assign_9">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[str_OrderStatus]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">["blocked"]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign DisplayName="List Block Reasons in Error Message" sap:VirtualizedContainerService.HintSize="555.2,165.6" sap2010:WorkflowViewState.IdRef="Assign_10">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[str_ErrorMessage]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[String.Join("; ", list_BlockReasons)]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="588.8,8684" sap2010:WorkflowViewState.IdRef="Sequence_14">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Sequence DisplayName="Credit Check Sequence" sap:VirtualizedContainerService.HintSize="555.2,8624" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="str_CollectionsNote" />
+              <Variable x:TypeArguments="x:String" Name="str_AccountManagerNote" />
+              <Variable x:TypeArguments="x:String" Name="str_PaymentTrend" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="521.6,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;No Billing and Delivery blocks. Connecting to Customers database for credit check...&quot;]" />
+            <ui:DatabaseConnect DisplayName="Connect to Customers Database" sap:VirtualizedContainerService.HintSize="521.6,92" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="System.Data.Odbc" ConnectionString="[str_ConnectionString]" DatabaseConnection="[db_MustangConn]" />
+            <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DataTable="[dt_CustomerResults]" DisplayName="Get All Details for a Specific Customer from Customers Database" ExistingDbConnection="[db_MustangConn]" sap:VirtualizedContainerService.HintSize="521.6,147.2" sap2010:WorkflowViewState.IdRef="ExecuteQuery_1" Sql="SELECT * FROM Customers WHERE CustomerID = ?">
+              <ui:ExecuteQuery.Parameters>
+                <InArgument x:TypeArguments="x:String" x:Key="ID">[str_CustomerID]</InArgument>
+              </ui:ExecuteQuery.Parameters>
+            </ui:ExecuteQuery>
+            <ui:MultipleAssign DisplayName="Assign Customer's details to the variables and calculate remaining credit" sap:VirtualizedContainerService.HintSize="521.6,524" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Double">[dbl_DiscountTier]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Double">[Convert.ToDouble(dt_CustomerResults.Rows(0)("DiscountTier"))]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[str_FullName]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[dt_CustomerResults.Rows(0)("FullName").ToString]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Double">[dbl_CreditLimit]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Double">[Convert.ToDouble(dt_CustomerResults.Rows(0)("CreditLimit"))]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[str_VIPStatus]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[dt_CustomerResults.Rows(0)("VIP_Status").ToString]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Double">[dbl_NewCurrentBalance]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Double">[(Convert.ToDouble(dt_CustomerResults.Rows(0)("CurrentBalance")) + Convert.ToDouble(dbl_SalesAmount) * (1 - dbl_DiscountTier))]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="s:DateTime">[date_LastPayment]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="s:DateTime">[DateTime.Parse(dt_CustomerResults.Rows(0)("LastPaymentDate").ToString)]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Double">[dbl_RemainingCredit]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Double">[dbl_CreditLimit - dbl_NewCurrentBalance]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Int32">[int_DaysSincePayment]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Int32">[(DateTime.Now - date_LastPayment).Days]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Double">[dbl_AverageOrderAmount]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Double">[Convert.ToDouble(dt_CustomerResults.Rows(0)("averageOrderAmount"))]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Double">[dbl_MaxPaidOrderAmount]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Double">[Convert.ToDouble(dt_CustomerResults.Rows(0)("maxPaidOrderAmount"))]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[str_PaymentTrend]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[dt_CustomerResults.Rows(0)("paymentTrend").ToString]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[str_AccountManagerNote]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[dt_CustomerResults.Rows(0)("AccountManagerNote").ToString]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[str_CollectionsNote]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[dt_CustomerResults.Rows(0)("CollectionsNote").ToString]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+            </ui:MultipleAssign>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="521.6,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;The customer &quot; &amp; str_FullName &amp; &quot; has $&quot; &amp; dbl_RemainingCredit &amp; &quot; left and hasn't paid in &quot; &amp; int_DaysSincePayment &amp; &quot; days. Should we block?&quot;]" />
+            <If Condition="[dbl_RemainingCredit &lt; -5000]" DisplayName="Has Credit Overdraft Exceeded 5000?" sap:VirtualizedContainerService.HintSize="521.6,2920.8" sap2010:WorkflowViewState.IdRef="If_5">
+              <If.Then>
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="520,815.2" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If Condition="[str_VIPStatus = &quot;Diamond&quot;]" DisplayName="Is the Customer a Diamond VIP?" sap:VirtualizedContainerService.HintSize="486.4,755.2" sap2010:WorkflowViewState.IdRef="If_6">
+                    <If.Then>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,400" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="416,174.4" sap2010:WorkflowViewState.IdRef="Assign_21">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[str_Status]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">["PENDING. Diamond Customer's order must be reviewed by the manager."]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign sap:VirtualizedContainerService.HintSize="416,165.6" sap2010:WorkflowViewState.IdRef="Assign_31">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[str_OrderStatus]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">["pending"]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="449.6,225.6" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="416,165.6" sap2010:WorkflowViewState.IdRef="Assign_22">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[str_OrderStatus]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">["blocked"]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="520,1967.2" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If Condition="[dbl_RemainingCredit &gt; 1000 And str_PaymentTrend &lt;&gt; &quot;Worsening&quot;]" sap:VirtualizedContainerService.HintSize="486.4,1907.2" sap2010:WorkflowViewState.IdRef="If_7">
+                    <If.Then>
+                      <Sequence DisplayName="Then Immediately Approve" sap:VirtualizedContainerService.HintSize="484.8,400" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="451.2,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Sales Order &quot; + str_SalesOrder + &quot; immediately approved&quot;]" />
+                        <Assign sap:VirtualizedContainerService.HintSize="451.2,165.6" sap2010:WorkflowViewState.IdRef="Assign_24">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[str_OrderStatus]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">["approved"]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Else Let AI agent estimate risks " sap:VirtualizedContainerService.HintSize="484.8,1377.6" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <isactr:ConnectorActivity Configuration="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" ConnectionId="dbdfb673-1f87-400b-b489-3d11e108f86d" DisplayName="Content Generation" sap:VirtualizedContainerService.HintSize="451.2,424" sap2010:WorkflowViewState.IdRef="ConnectorActivity_1" UiPathActivityTypeId="aba52a00-4c05-318d-8f99-5ad924b2f277">
+                          <isactr:ConnectorActivity.FieldObjects>
+                            <isactr:FieldObject Name="prompt" Type="FieldArgument">
+                              <isactr:FieldObject.Value>
+                                <InArgument x:TypeArguments="x:String" xml:space="preserve">Evaluate this sales Order.
+
+Sales Order data:
+- SalesOrder: {{str_SalesOrder}}
+- TotalNetAmount: {{dbl_SalesAmount}}
+- DeliveryBlock: {{deliveryBlockReason}}
+- BillingBlock: {{billingBlockReason}}
+
+Customer data:
+- CustomerID: {{str_CustomerID}}
+- FullName: {{str_FullName}}
+- VIP_Status: {{str_VIPStatus}}
+- CreditLimit: {{dbl_CreditLimit}}
+- ProjectedBalance: {{str_NewCurrentBalance}}
+- RemainingCredit: {{dbl_RemainingCredit}}
+- LastPaymentDate: {{date_LastPayment}}
+- averageOrderAmount: {{dbl_AverageOrderAmount}}
+- maxHistoricalOrderAmountPaid: {{dbl_MaxPaidOrderAmount}}
+- paymentTrend: {{str_PaymentTrend}}
+- AccountManagerNote: {{str_AccountManagerNote}}
+- CollectionsNote: {{str_CollectionsNote}}
+Should we block? Constraints: Provide a APPROVE, BLOCK or PENDING followed by a logical reason.</InArgument>
+                              </isactr:FieldObject.Value>
+                            </isactr:FieldObject>
+                            <isactr:FieldObject Name="isPIIEnabled" Type="FieldArgument">
+                              <isactr:FieldObject.Value>
+                                <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                              </isactr:FieldObject.Value>
+                            </isactr:FieldObject>
+                            <isactr:FieldObject Name="isFilterPIIEnabled" Type="FieldArgument" />
+                            <isactr:FieldObject Name="languageCode" Type="FieldArgument" />
+                            <isactr:FieldObject Name="piiEntityCategories_array" Type="FieldArgument" />
+                            <isactr:FieldObject Name="confidenceThreshold" Type="FieldArgument" />
+                            <isactr:FieldObject Name="topK" Type="FieldArgument" />
+                            <isactr:FieldObject Name="contextGrounding" Type="FieldArgument">
+                              <isactr:FieldObject.Value>
+                                <InArgument x:TypeArguments="x:String">None</InArgument>
+                              </isactr:FieldObject.Value>
+                            </isactr:FieldObject>
+                            <isactr:FieldObject Name="_file" Type="FieldArgument" />
+                            <isactr:FieldObject Name="folderKey" Type="FieldArgument" />
+                            <isactr:FieldObject Name="topP" Type="FieldArgument" />
+                            <isactr:FieldObject Name="indexID" Type="FieldArgument" />
+                            <isactr:FieldObject Name="numberOfResults" Type="FieldArgument" />
+                            <isactr:FieldObject Name="top_p" Type="FieldArgument">
+                              <isactr:FieldObject.Value>
+                                <InArgument x:TypeArguments="x:Int64">1</InArgument>
+                              </isactr:FieldObject.Value>
+                            </isactr:FieldObject>
+                            <isactr:FieldObject Name="modelName" Type="FieldArgument">
+                              <isactr:FieldObject.Value>
+                                <InArgument x:TypeArguments="x:String">gpt-5.1-2025-11-13</InArgument>
+                              </isactr:FieldObject.Value>
+                            </isactr:FieldObject>
+                            <isactr:FieldObject Name="instruction" Type="FieldArgument">
+                              <isactr:FieldObject.Value>
+                                <InArgument x:TypeArguments="x:String" xml:space="preserve">You are a Senior Credit Risk Review Assistant for Mustang ERP.
+
+Your task is to evaluate a borderline sales order and return exactly one line in this format:
+
+DECISION|REASON
+
+Rules:
+- DECISION must be exactly one of: APPROVE, PENDING, BLOCK
+- REASON must be one short business explanation sentence
+- Do not return JSON
+- Do not return bullet points
+- Do not return labels
+- Do not return any extra text before or after the line
+
+Decision guidance:
+- Use APPROVE when the customer is only slightly over or near the limit and payment behavior is healthy or improving.
+- Use PENDING when the case is mixed, uncertain, or should be reviewed by a manager.
+- Use BLOCK when the pattern indicates significant credit risk, worsening payment behavior, or an unusually risky order.
+
+Consider these factors:
+- Remaining credit after this order
+- VIP status
+- Average days late
+- Payment trend
+- Whether the current order is unusually large compared to the average historical order
+- AccountManagerNote for business justification
+- CollectionsNote for payment risk or dispute context
+
+If notes conflict, prefer PENDING unless the risk is clearly low or clearly high.</InArgument>
+                              </isactr:FieldObject.Value>
+                            </isactr:FieldObject>
+                            <isactr:FieldObject Name="max_tokens" Type="FieldArgument">
+                              <isactr:FieldObject.Value>
+                                <InArgument x:TypeArguments="x:Int64">100</InArgument>
+                              </isactr:FieldObject.Value>
+                            </isactr:FieldObject>
+                            <isactr:FieldObject Name="temperature" Type="FieldArgument">
+                              <isactr:FieldObject.Value>
+                                <InArgument x:TypeArguments="x:Double">0</InArgument>
+                              </isactr:FieldObject.Value>
+                            </isactr:FieldObject>
+                            <isactr:FieldObject Name="frequency_penalty" Type="FieldArgument">
+                              <isactr:FieldObject.Value>
+                                <InArgument x:TypeArguments="x:Int64">0</InArgument>
+                              </isactr:FieldObject.Value>
+                            </isactr:FieldObject>
+                            <isactr:FieldObject Name="presence_penalty" Type="FieldArgument">
+                              <isactr:FieldObject.Value>
+                                <InArgument x:TypeArguments="x:Int64">0</InArgument>
+                              </isactr:FieldObject.Value>
+                            </isactr:FieldObject>
+                            <isactr:FieldObject Name="n" Type="FieldArgument">
+                              <isactr:FieldObject.Value>
+                                <InArgument x:TypeArguments="x:Int64">1</InArgument>
+                              </isactr:FieldObject.Value>
+                            </isactr:FieldObject>
+                            <isactr:FieldObject Name="_stop" Type="FieldArgument">
+                              <isactr:FieldObject.Value>
+                                <InArgument x:TypeArguments="x:String" />
+                              </isactr:FieldObject.Value>
+                            </isactr:FieldObject>
+                            <isactr:FieldObject Name="out_text" Type="FieldArgument">
+                              <isactr:FieldObject.Value>
+                                <OutArgument x:TypeArguments="x:String">[str_Status]</OutArgument>
+                              </isactr:FieldObject.Value>
+                            </isactr:FieldObject>
+                            <isactr:FieldObject Name="out_maskedText" Type="FieldArgument">
+                              <isactr:FieldObject.Value>
+                                <OutArgument x:TypeArguments="x:String" />
+                              </isactr:FieldObject.Value>
+                            </isactr:FieldObject>
+                            <isactr:FieldObject Name="Jit_v2_sub_generateChatCompletion" Type="FieldArgument">
+                              <isactr:FieldObject.Value>
+                                <OutArgument x:TypeArguments="uiascb:v2_sub_generateChatCompletion_Create" />
+                              </isactr:FieldObject.Value>
+                            </isactr:FieldObject>
+                            <isactr:FieldObject Name="out_contextGroundingCitationsString" Type="FieldArgument">
+                              <isactr:FieldObject.Value>
+                                <OutArgument x:TypeArguments="x:String" />
+                              </isactr:FieldObject.Value>
+                            </isactr:FieldObject>
+                          </isactr:ConnectorActivity.FieldObjects>
+                        </isactr:ConnectorActivity>
+                        <ui:IfElseIfV2 Condition="[str_Status.ToUpper.StartsWith(&quot;APPROVE&quot;)]" DisplayName="Else If" sap:VirtualizedContainerService.HintSize="451.2,893.6" sap2010:WorkflowViewState.IdRef="IfElseIfV2_2">
+                          <ui:IfElseIfV2.Else>
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="449.6,225.6" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="416,165.6" sap2010:WorkflowViewState.IdRef="Assign_30">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[str_OrderStatus]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">["blocked"]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </ui:IfElseIfV2.Else>
+                          <ui:IfElseIfV2.ElseIfs>
+                            <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                              <ui:IfElseIfBlock BlockType="ElseIf" Condition="[str_Status.ToUpper.StartsWith(&quot;PENDING&quot;)]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_4">
+                                <ui:IfElseIfBlock.Then>
+                                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="449.6,225.6" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Assign sap:VirtualizedContainerService.HintSize="416,165.6" sap2010:WorkflowViewState.IdRef="Assign_29">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[str_OrderStatus]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">["pending"]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </Sequence>
+                                </ui:IfElseIfBlock.Then>
+                              </ui:IfElseIfBlock>
+                            </sc:BindingList>
+                          </ui:IfElseIfV2.ElseIfs>
+                          <ui:IfElseIfV2.Then>
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,225.6" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="416,165.6" sap2010:WorkflowViewState.IdRef="Assign_28">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[str_OrderStatus]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">["approved"]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </ui:IfElseIfV2.Then>
+                        </ui:IfElseIfV2>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </If.Else>
+            </If>
+            <ui:IfElseIfV2 Condition="[str_OrderStatus = &quot;approved&quot;]" DisplayName="Else If" sap:VirtualizedContainerService.HintSize="521.6,4508" sap2010:WorkflowViewState.IdRef="IfElseIfV2_1">
+              <ui:IfElseIfV2.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="512,400" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="478.4,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;ACTION: Account Blocked for &quot; &amp; str_FullName &amp; &quot;. Reason: &quot; &amp; str_Status]" />
+                  <Assign sap:VirtualizedContainerService.HintSize="478.4,165.6" sap2010:WorkflowViewState.IdRef="Assign_14">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[str_ErrorMessage]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">["Credit limit exceeded"]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </ui:IfElseIfV2.Else>
+              <ui:IfElseIfV2.ElseIfs>
+                <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                  <ui:IfElseIfBlock BlockType="ElseIf" Condition="[str_OrderStatus = &quot;pending&quot;]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_2">
+                    <ui:IfElseIfBlock.Then>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="512,3518.4" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="upaf:FormTaskData" Name="taskObj" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="478.4,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;ACTION: Account PENDING for &quot; &amp; str_FullName &amp; &quot;. Reason: &quot; &amp; str_Status]" />
+                        <Assign sap:VirtualizedContainerService.HintSize="478.4,174.4" sap2010:WorkflowViewState.IdRef="Assign_35">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[str_ErrorMessage]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">["Awaiting manager decision"]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign DisplayName="Construct Callback string to Send to Backend" sap:VirtualizedContainerService.HintSize="478.4,174.4" sap2010:WorkflowViewState.IdRef="Assign_32">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[str_CallbackBody]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[Newtonsoft.Json.Linq.JObject.FromObject(New With {
+    .documentId = in_DocumentId,
+    .runId = in_RunId,
+    .status = str_OrderStatus,
+    .error = str_ErrorMessage
+}).ToString(Newtonsoft.Json.Formatting.None)]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <uwah:NetHttpRequest BasicAuthPassword="{x:Null}" BasicAuthSecurePassword="{x:Null}" BasicAuthUsername="{x:Null}" BinaryPayload="{x:Null}" ClientCertPassword="{x:Null}" ClientCertPath="{x:Null}" ClientCertSecurePassword="{x:Null}" Cookies="{x:Null}" CustomNegotiatedAuthCredentials="{x:Null}" FilePath="{x:Null}" FormData="{x:Null}" Headers="{x:Null}" LocalFiles="{x:Null}" OAuthToken="{x:Null}" OutputFileName="{x:Null}" OutputFileTargetFolder="{x:Null}" Parameters="{x:Null}" PathResource="{x:Null}" ProxyConfiguration="{x:Null}" ResourceFiles="{x:Null}" AuthenticationType="None" ContinueOnError="True" DisableSslVerification="False" DisplayName="Send Final Status HTTP Callback" EnableCookies="True" FileOverwrite="AutoRename" FollowRedirects="True" FormDataParts="[New List (Of FormDataPart) From _&#xA;{&#xA;&#x9;New FileFormDataPart(),&#xA;&#x9;New BinaryFormDataPart(),&#xA;&#x9;New TextFormDataPart()&#xA;}]" sap:VirtualizedContainerService.HintSize="478.4,432.8" sap2010:WorkflowViewState.IdRef="NetHttpRequest_2" InitialDelay="500" MaxRedirects="3" MaxRetryAfterDelay="30000" Method="POST" Multiplier="2" PreferRetryAfterValue="True" RequestBodyType="Text" RequestUrl="[in_CallbackUrl]" RetryCount="3" RetryPolicyType="Basic" RetryStatusCodes="[New List (Of System.Net.HttpStatusCode) From _&#xA;{&#xA;&#x9;System.Net.HttpStatusCode.RequestTimeout,&#xA;&#x9;System.Net.HttpStatusCode.TooManyRequests,&#xA;&#x9;System.Net.HttpStatusCode.InternalServerError,&#xA;&#x9;System.Net.HttpStatusCode.BadGateway,&#xA;&#x9;System.Net.HttpStatusCode.ServiceUnavailable,&#xA;&#x9;System.Net.HttpStatusCode.GatewayTimeout&#xA;}]" SaveRawRequestResponse="False" SaveResponseAsFile="False" TextPayload="[str_CallbackBody]" TextPayloadContentType="application/json" TextPayloadEncoding="UTF-8" TlsProtocol="Automatic" UseJitter="True" UseOsNegotiatedAuthCredentials="True">
+                          <uwah:NetHttpRequest.TimeoutInMiliseconds>
+                            <InArgument x:TypeArguments="s:Nullable(x:Int32)">
+                              <Literal x:TypeArguments="s:Nullable(x:Int32)" Value="10000" />
+                            </InArgument>
+                          </uwah:NetHttpRequest.TimeoutInMiliseconds>
+                        </uwah:NetHttpRequest>
+                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.4,274.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                          <ui:MultipleAssign.AssignOperations>
+                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[io_FullName]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">[str_FullName]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[io_AI_Reasoning]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">[str_Status]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:Double">[io_RemCredit]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:Double">[dbl_RemainingCredit]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:Int32">[io_Passed_Days]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:Int32">[int_DaysSincePayment]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[io_CustomerID]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">[str_CustomerID]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                            </scg:List>
+                          </ui:MultipleAssign.AssignOperations>
+                        </ui:MultipleAssign>
+                        <upaf:CreateFormTask BucketFolderPath="{x:Null}" BucketName="{x:Null}" BulkFormLayout="{x:Null}" DynamicFormPath="{x:Null}" ExternalTag="{x:Null}" Labels="{x:Null}" TimeoutMs="{x:Null}" BulkFormLayoutGuid="4877adf3-3ff4-4bd0-9c0c-072c709e7760" DisplayName="Create Form Task" EnableBulkEdit="False" EnableDynamicForms="False" EnableV2="False" FolderPath="SAPOrderProcessing" FormLayout="%[{&quot;label&quot;:&quot;Customer Name&quot;,&quot;disabled&quot;:true,&quot;tableView&quot;:true,&quot;key&quot;:&quot;customerName&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Remaining Credit&quot;,&quot;disabled&quot;:true,&quot;tableView&quot;:true,&quot;key&quot;:&quot;remainingCredit&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;AI Agent Reasoning&quot;,&quot;disabled&quot;:true,&quot;tableView&quot;:true,&quot;key&quot;:&quot;reason&quot;,&quot;type&quot;:&quot;textarea&quot;,&quot;input&quot;:true,&quot;rows&quot;:4},{&quot;label&quot;:&quot;Days Unpaid&quot;,&quot;disabled&quot;:true,&quot;tableView&quot;:true,&quot;delimiter&quot;:false,&quot;requireDecimal&quot;:false,&quot;key&quot;:&quot;DaysUnpaid&quot;,&quot;type&quot;:&quot;number&quot;,&quot;input&quot;:true},{&quot;mask&quot;:false,&quot;customClass&quot;:&quot;uipath-button-container&quot;,&quot;tableView&quot;:true,&quot;alwaysEnabled&quot;:false,&quot;type&quot;:&quot;table&quot;,&quot;input&quot;:false,&quot;key&quot;:&quot;key&quot;,&quot;label&quot;:&quot;label&quot;,&quot;rows&quot;:[[{&quot;components&quot;:[{&quot;label&quot;:&quot;Block&quot;,&quot;disableOnInvalid&quot;:true,&quot;tableView&quot;:true,&quot;key&quot;:&quot;BLOCK&quot;,&quot;custom&quot;:&quot;instance.emit('executeDoBlock', instance.component);&quot;,&quot;type&quot;:&quot;button&quot;,&quot;input&quot;:true,&quot;alwaysEnabled&quot;:false,&quot;isResetData&quot;:false}]},{&quot;components&quot;:[{&quot;label&quot;:&quot;Approve&quot;,&quot;tableView&quot;:false,&quot;key&quot;:&quot;APPROVE&quot;,&quot;custom&quot;:&quot;instance.emit('executeDoBlock', instance.component);&quot;,&quot;input&quot;:true,&quot;type&quot;:&quot;button&quot;,&quot;isResetData&quot;:false}]},{&quot;components&quot;:[]},{&quot;components&quot;:[]},{&quot;components&quot;:[]},{&quot;components&quot;:[]}]],&quot;numRows&quot;:1,&quot;numCols&quot;:6,&quot;reorder&quot;:false}]" FormLayoutGuid="d1513f84-46d2-4a57-86e6-278e25bf12e2" GenerateInputFields="True" sap:VirtualizedContainerService.HintSize="478.4,361.6" sap2010:WorkflowViewState.IdRef="CreateFormTask_1" TaskCatalog="Credit_Approvals" TaskOutput="[taskObj]" TaskPriority="Medium" TaskTitle="[&quot;Credit Review Required: &quot; + io_FullName + &quot; (&quot; + io_CustomerID + &quot;)&quot;]">
+                          <upaf:CreateFormTask.FormData>
+                            <InArgument x:TypeArguments="x:String" x:Key="customerName">[io_FullName]</InArgument>
+                            <InArgument x:TypeArguments="x:Double" x:Key="remainingCredit">[io_RemCredit]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="reason">[io_AI_Reasoning]</InArgument>
+                            <InArgument x:TypeArguments="x:Int32" x:Key="DaysUnpaid">[io_Passed_Days]</InArgument>
+                          </upaf:CreateFormTask.FormData>
+                        </upaf:CreateFormTask>
+                        <upaf:WaitForFormTaskAndResume StatusMessage="{x:Null}" TaskAction="{x:Null}" TimeoutMs="{x:Null}" WaitItemDataObject="{x:Null}" DisplayName="Wait for Form Task and Resume" sap:VirtualizedContainerService.HintSize="478.4,174.4" sap2010:WorkflowViewState.IdRef="WaitForFormTaskAndResume_1" TaskInput="[taskObj]" TaskOutput="[io_ManagerDecisionObj]" />
+                        <Assign DisplayName="Extract Manager's Action from Form Data" sap:VirtualizedContainerService.HintSize="478.4,174.4" sap2010:WorkflowViewState.IdRef="Assign_4">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[io_ManagerDecision]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[Newtonsoft.Json.Linq.JObject.Parse(
+    Newtonsoft.Json.Linq.JObject.Parse(
+        Newtonsoft.Json.JsonConvert.SerializeObject(io_ManagerDecisionObj)
+    )("ItemData").ToString
+)("Action").ToString]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="478.4,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Manager submitted: &quot; + io_ManagerDecision]" />
+                        <If Condition="[io_ManagerDecision.ToUpper.StartsWith(&quot;BLOCK&quot;)]" DisplayName="Did Manager Blocked the Order?" sap:VirtualizedContainerService.HintSize="478.4,1343.2" sap2010:WorkflowViewState.IdRef="If_4">
+                          <If.Then>
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,400" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="416,174.4" sap2010:WorkflowViewState.IdRef="Assign_11">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[str_OrderStatus]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">["blocked"]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <Assign sap:VirtualizedContainerService.HintSize="416,165.6" sap2010:WorkflowViewState.IdRef="Assign_12">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[str_ErrorMessage]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">["Credit limit exceeded. Manager rejected the approval request. Order remains blocked."]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="449.6,813.6" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="416,174.4" sap2010:WorkflowViewState.IdRef="Assign_19">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[str_OrderStatus]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">["approved"]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <Assign sap:VirtualizedContainerService.HintSize="416,174.4" sap2010:WorkflowViewState.IdRef="Assign_20">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[str_ErrorMessage]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">[""]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Updating Customers database with new balance of &quot; + dbl_NewCurrentBalance.ToString() + &quot; for the customer &quot; + str_CustomerID + &quot;...&quot;]" />
+                              <ui:DatabaseConnect DisplayName="Reconnect to Database" sap:VirtualizedContainerService.HintSize="416,92" sap2010:WorkflowViewState.IdRef="DatabaseConnect_2" ProviderName="System.Data.Odbc" ConnectionString="[str_ConnectionString]" DatabaseConnection="[db_MustangConn]" />
+                              <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Update Customer's Balance in Customers Database" ExistingDbConnection="[db_MustangConn]" sap:VirtualizedContainerService.HintSize="416,138.4" sap2010:WorkflowViewState.IdRef="ExecuteQuery_3" Sql="UPDATE Customers SET CurrentBalance = ? WHERE CustomerID = ?">
+                                <ui:ExecuteQuery.Parameters>
+                                  <InArgument x:TypeArguments="x:Double" x:Key="NewCurrentBalance">[dbl_NewCurrentBalance]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="CustomerID">[str_CustomerID]</InArgument>
+                                </ui:ExecuteQuery.Parameters>
+                              </ui:ExecuteQuery>
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                      </Sequence>
+                    </ui:IfElseIfBlock.Then>
+                  </ui:IfElseIfBlock>
+                </sc:BindingList>
+              </ui:IfElseIfV2.ElseIfs>
+              <ui:IfElseIfV2.Then>
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="512,372.8" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="478.4,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;ACTION: Transaction Approved for &quot; &amp; str_FullName]" />
+                  <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Run Query" ExistingDbConnection="[db_MustangConn]" sap:VirtualizedContainerService.HintSize="478.4,138.4" sap2010:WorkflowViewState.IdRef="ExecuteQuery_2" Sql="UPDATE Customers SET CurrentBalance = ? WHERE CustomerID = ? RETURNING *">
+                    <ui:ExecuteQuery.Parameters>
+                      <InArgument x:TypeArguments="x:Double" x:Key="NewCurrentBalance">[dbl_NewCurrentBalance]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="CustomerID">[str_CustomerID]</InArgument>
+                    </ui:ExecuteQuery.Parameters>
+                  </ui:ExecuteQuery>
+                </Sequence>
+              </ui:IfElseIfV2.Then>
+            </ui:IfElseIfV2>
+          </Sequence>
+        </Sequence>
+      </If.Else>
+    </If>
+    <Assign DisplayName="Construct Callback string to Send to Backend" sap:VirtualizedContainerService.HintSize="590.4,174.4" sap2010:WorkflowViewState.IdRef="Assign_15">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[str_CallbackBody]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String" xml:space="preserve">[Newtonsoft.Json.Linq.JObject.FromObject(New With {
+    .documentId = in_DocumentId,
+    .runId = in_RunId,
+    .status = str_OrderStatus,
+    .error = str_ErrorMessage
+}).ToString(Newtonsoft.Json.Formatting.None)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <uwah:NetHttpRequest BasicAuthPassword="{x:Null}" BasicAuthSecurePassword="{x:Null}" BasicAuthUsername="{x:Null}" BinaryPayload="{x:Null}" ClientCertPassword="{x:Null}" ClientCertPath="{x:Null}" ClientCertSecurePassword="{x:Null}" Cookies="{x:Null}" CustomNegotiatedAuthCredentials="{x:Null}" FilePath="{x:Null}" FormData="{x:Null}" Headers="{x:Null}" LocalFiles="{x:Null}" OAuthToken="{x:Null}" OutputFileName="{x:Null}" OutputFileTargetFolder="{x:Null}" Parameters="{x:Null}" PathResource="{x:Null}" ProxyConfiguration="{x:Null}" ResourceFiles="{x:Null}" AuthenticationType="None" ContinueOnError="True" DisableSslVerification="False" DisplayName="Send Final Status HTTP Callback" EnableCookies="True" FileOverwrite="AutoRename" FollowRedirects="True" FormDataParts="[New List (Of FormDataPart) From _&#xA;{&#xA;&#x9;New FileFormDataPart(),&#xA;&#x9;New BinaryFormDataPart(),&#xA;&#x9;New TextFormDataPart()&#xA;}]" sap:VirtualizedContainerService.HintSize="590.4,424" sap2010:WorkflowViewState.IdRef="NetHttpRequest_1" InitialDelay="500" MaxRedirects="3" MaxRetryAfterDelay="30000" Method="POST" Multiplier="2" PreferRetryAfterValue="True" RequestBodyType="Text" RequestUrl="[in_CallbackUrl]" RetryCount="3" RetryPolicyType="Basic" RetryStatusCodes="[New List (Of System.Net.HttpStatusCode) From _&#xA;{&#xA;&#x9;System.Net.HttpStatusCode.RequestTimeout,&#xA;&#x9;System.Net.HttpStatusCode.TooManyRequests,&#xA;&#x9;System.Net.HttpStatusCode.InternalServerError,&#xA;&#x9;System.Net.HttpStatusCode.BadGateway,&#xA;&#x9;System.Net.HttpStatusCode.ServiceUnavailable,&#xA;&#x9;System.Net.HttpStatusCode.GatewayTimeout&#xA;}]" SaveRawRequestResponse="False" SaveResponseAsFile="False" TextPayload="[str_CallbackBody]" TextPayloadContentType="application/json" TextPayloadEncoding="UTF-8" TlsProtocol="Automatic" UseJitter="True" UseOsNegotiatedAuthCredentials="True">
+      <uwah:NetHttpRequest.TimeoutInMiliseconds>
+        <InArgument x:TypeArguments="s:Nullable(x:Int32)">
+          <Literal x:TypeArguments="s:Nullable(x:Int32)" Value="10000" />
+        </InArgument>
+      </uwah:NetHttpRequest.TimeoutInMiliseconds>
+    </uwah:NetHttpRequest>
+  </Sequence>
+</Activity>

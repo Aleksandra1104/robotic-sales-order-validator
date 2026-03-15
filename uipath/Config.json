@@ -1,0 +1,3 @@
+﻿{
+  "dbConnectionString": "Driver={SQLite3 ODBC Driver};Database=Data\\MustangERP.db;"
+}

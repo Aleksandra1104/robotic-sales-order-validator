@@ -1,0 +1,12 @@
+{
+  "sap.app": { "id": "my.app" },
+  "sap.ui5": {
+    "rootView": {
+      "viewName": "my.app.view.Main",
+      "type": "XML"
+    },
+    "dependencies": {
+      "libs": { "sap.m": {} }
+    }
+  }
+}
