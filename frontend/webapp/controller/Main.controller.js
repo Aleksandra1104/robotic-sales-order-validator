@@ -6,10 +6,18 @@ sap.ui.define([
     "use strict";
 
     return Controller.extend("my.app.controller.Main", {
-        // ngrok url
-        callbackUrl: "https://noncongruous-disciplelike-eleonore.ngrok-free.dev/api/callback",
 
-        onInit: function () {
+        onInit: async function () {
+            // Load callback URL from backend
+            try {
+                const res = await fetch("http://localhost:3000/api/callback-url");
+                const data = await res.json();
+                this.callbackUrl = data.callbackUrl;
+            } catch (err) {
+                console.error("Failed to load callback URL", err);
+                this.callbackUrl = ""; // fallback
+            }
+
             this.loadData();
             
             // 1. Initialize UI Model for Progress and Buttons

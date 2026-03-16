@@ -36,6 +36,11 @@ app.get('/api/sales-orders', async (req, res) => {
     } catch (e) { res.status(500).send(e.message); }
 });
 
+//  API: Get Callback URL. Returns the configured callback URL for UiPath robots.
+app.get('/api/callback-url', (req, res) => {
+    res.json({ callbackUrl: process.env.CALLBACK_URL });
+});
+
 //  API: Trigger Robot Validation. This endpoint receives the order data and callback URL from the frontend, authenticates with UiPath, finds the correct process release, and starts a job with the order data as input.
 app.post('/api/validate', async (req, res) => {
     try {

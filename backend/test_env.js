@@ -6,3 +6,4 @@ console.log("Tenant Loaded:", process.env.UIPATH_TENANT);
 console.log("Folder ID Loaded:", process.env.UIPATH_FOLDER_ID);
 console.log("Process Name Loaded:", process.env.UIPATH_PROCESS_NAME);
 console.log("SAP API Key Loaded:", process.env.SAP_API_KEY);
+console.log("Callback URL Loaded:", process.env.CALLBACK_URL);
