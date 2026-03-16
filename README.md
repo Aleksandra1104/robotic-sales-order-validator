@@ -2,6 +2,10 @@
 
 A full-stack application that integrates SAP Business Accelerator Hub (Sandbox) sales orders with UiPath robotic process automation for automated order validation. Includes a complete UiPath workflow, SAP UI5 frontend, Node.js backend with WebSocket real-time updates, and UiPath Orchestrator integration.
 
+<p align="center">
+  <img width="600" height="665" alt="Image" src="https://github.com/user-attachments/assets/c9a26470-326c-4f73-8b82-e873398241e1" />
+</p>
+
 **Technologies:** SAP UI5, Node.js, Express, Socket.IO, UiPath RPA, SAP Business Accelerator Hub API
 
 **Features:**
@@ -15,6 +19,14 @@ A full-stack application that integrates SAP Business Accelerator Hub (Sandbox) 
 - `frontend/` - SAP UI5 application for order management and robot triggering
 - `backend/` - Node.js server with SAP API integration and UiPath Orchestrator connection
 - `uipath/` - Complete UiPath Studio project with ready-to-deploy workflow for order validation
+
+## DEMO
+
+https://github.com/user-attachments/assets/87ddd6c9-182f-4fb1-b25c-8ff65121235a
+
+https://github.com/user-attachments/assets/15bf865e-3d25-4ac2-a0a4-5113fdb64f1c
+
+
 
 ## Setup Instructions
 
@@ -87,11 +99,7 @@ This application requires several environment variables for API authentication. 
   ```
 - Ensure the robot has access to the new database location
 
-https://github.com/user-attachments/assets/87ddd6c9-182f-4fb1-b25c-8ff65121235a
 
-https://github.com/user-attachments/assets/15bf865e-3d25-4ac2-a0a4-5113fdb64f1c
 
-<p align="center">
-  <img width="600" height="665" alt="Image" src="https://github.com/user-attachments/assets/c9a26470-326c-4f73-8b82-e873398241e1" />
-</p>
+
 
