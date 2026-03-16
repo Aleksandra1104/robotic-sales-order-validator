@@ -20,3 +20,6 @@ Thumbs.db
 dist/
 build/
 coverage/
+
+#videos
+demo/*.mp4
