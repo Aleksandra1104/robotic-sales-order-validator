@@ -87,4 +87,11 @@ This application requires several environment variables for API authentication. 
   ```
 - Ensure the robot has access to the new database location
 
-https://github.com/user-attachments/assets/5f8b4a3b-4164-406a-9312-caec2af23bd2
+https://github.com/user-attachments/assets/87ddd6c9-182f-4fb1-b25c-8ff65121235a
+
+https://github.com/user-attachments/assets/15bf865e-3d25-4ac2-a0a4-5113fdb64f1c
+
+<p align="center">
+  <img width="600" height="665" alt="Image" src="https://github.com/user-attachments/assets/c9a26470-326c-4f73-8b82-e873398241e1" />
+</p>
+
