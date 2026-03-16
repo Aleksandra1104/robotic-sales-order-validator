@@ -17,4 +17,4 @@ A full-stack application that integrates SAP Business Accelerator Hub (Sandbox) 
 - `uipath/` - Complete UiPath Studio project with ready-to-deploy workflow for order validation
 
 
-https://github.com/user-attachments/assets/5f8b4a3b-4164-406a-9312-caec2af23bd2
+https://github.com/user-attachments/assets/87ddd6c9-182f-4fb1-b25c-8ff65121235a
